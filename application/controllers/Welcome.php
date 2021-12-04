@@ -19,7 +19,10 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index($orderId){
-
+        $total_price= "10,00";
+        $userPhone= "5445555555";
+        $data = array();
+        $data['total_price'] = $total_price;
 		if(isset($_POST['pos_id'])){
             $config['GUID'] = '0c13d406-873b-403b-9c09-a5766840d98c';
             $config['CLIENT_CODE'] ='10738';
@@ -27,7 +30,7 @@ class Welcome extends CI_Controller {
             $config['CLIENT_PASSWORD'] ='Test';
             $config['MODE'] = "TEST"; // PROD or TEST
             $config['orderId'] = $orderId;
-            $config['cardHolderPhone'] ="5445555555";
+            $config['cardHolderPhone'] =$userPhone;
 
             $config['payAction'] = base_url('/checkout/payment/'.$orderId);
             $config['successUrl'] =base_url('/checkout/result/'.$orderId.'?success=true');
@@ -40,7 +43,7 @@ class Welcome extends CI_Controller {
             $post['card_expmonth'] = $_POST['card_expmonth'];
             $post['card_expyear'] = $_POST['card_expyear'];
             $post['card_cvv'] = $_POST['card_cvv'];
-            $post['total_price']= '10,00';
+            $post['total_price']=  $total_price;
 
             $payed = $this->Parampos->setPaid($post);
             if ($payed["success"]){
@@ -50,7 +53,7 @@ class Welcome extends CI_Controller {
                 redirect('/Welcome/index/'.$orderId);
             }
         }
-
+        
 		$this->load->view('welcome_message',$data);
 	}
 }
