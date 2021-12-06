@@ -38,6 +38,7 @@ class Welcome extends CI_Controller {
 
             $this->load->library('Parampos',$config);
 
+            $post['securityType'] = $_POST['securitypayment'] ? '3D' : 'NS';
             $post['card_number'] = $_POST['card_number'];
             $post['card_name'] = $_POST['card_name'];
             $post['card_expmonth'] = $_POST['card_expmonth'];

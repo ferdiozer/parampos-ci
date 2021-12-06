@@ -37,6 +37,12 @@
                                 <input type="text" name="card_cvv"  class="form-control" required="">
                             </div>
                             <div class="col-sm-12">
+                            <div class="custom-control custom-checkbox">
+                                <input checked name="securitypayment" type="checkbox" class="custom-control-input" id="securitypayment-2">
+                                <label class="custom-control-label" for="securitypayment-2">Güvenli ödeme (3D)</label>
+                            </div><!-- End .custom-checkbox -->
+                            </div>
+                            <div class="col-sm-12">
                             <input type="hidden" id="pos_id" name="pos_id" >
                             <input type="submit" value="Onayla" class="btn btn-outline-primary-2">
                             </div>

@@ -108,7 +108,8 @@ function setPaid($post){
         $cardCvv = $post['card_cvv'];
         $installment = 1;//Taksit sayısı
         $description = 'DESC';
-        $securityType = '3D'; // NS (NonSecure) veya 3D gönderilir.
+       // $securityType = '3D'; // NS (NonSecure) veya 3D gönderilir.
+        $securityType = $post['securityType'];
         $total_price = $post['total_price'];
         if(!strstr($total_price, ".")) {
             $total_price = $total_price.",00";
