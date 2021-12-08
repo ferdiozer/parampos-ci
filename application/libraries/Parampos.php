@@ -182,6 +182,7 @@ function setPaid($post){
     $resultFin['code'] = $result->Islem_ID->__toString();
     $resultFin['bank_code'] = $result->Banka_Sonuc_Kod->__toString();
     $resultFin['message'] = $result->Sonuc_Str->__toString();
+    $resultFin['redirect'] = $result->UCD_URL->__toString();
 
 
     return $resultFin;

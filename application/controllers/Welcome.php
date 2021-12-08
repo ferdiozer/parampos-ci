@@ -47,6 +47,9 @@ class Welcome extends CI_Controller {
             $post['total_price']=  $total_price;
 
             $payed = $this->Parampos->setPaid($post);
+            if (strlen($payed["redirect"])>5){
+                redirect($payed["redirect"]);
+            }
             if ($payed["success"]){
                 redirect( '/Welcome/index/'.$orderId.'?success');
             }
